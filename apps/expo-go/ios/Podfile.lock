@@ -1851,8 +1851,30 @@ PODS:
     - React-jsiexecutor
     - React-RCTFBReactNativeSpec
     - ReactCommon/turbomodule/core
-  - react-native-maps (1.20.1):
+  - react-native-maps (1.21.0-alpha.112):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
     - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-hermes
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - react-native-netinfo (11.4.1):
     - React-Core
   - react-native-pager-view (6.7.0):
@@ -3467,7 +3489,7 @@ SPEC CHECKSUMS:
   GoogleDataTransport: aae35b7ea0c09004c3797d53c8c41f66f219d6a7
   GoogleMaps: 80ea184ed6bf44139f383a8b0e248ba3ec1cc8c9
   GoogleUtilities: 26a3abef001b6533cf678d3eb38fd3f614b7872d
-  hermes-engine: 197827f1ec648b53dcdc503d7a1b3a7644f9b4cb
+  hermes-engine: b582c44eb901463ed655200759977d79b91ab8bd
   JKBigInteger: 5c72131974815e969c0782c41e3452f1bbe5619f
   libavif: 84bbb62fb232c3018d6f1bab79beea87e35de7b7
   libdav1d: 23581a4d8ec811ff171ed5e2e05cd27bad64c39f
@@ -3513,7 +3535,7 @@ SPEC CHECKSUMS:
   React-logger: 0de8a4004273f62f6296d0c3b8c120c2245eaf81
   React-Mapbuffer: b4708d8976588eeda6dacfa14742b1f2056e5bb6
   React-microtasksnativemodule: 9d28b4b9272b52dffabcd2d48a934a8d8177f1e6
-  react-native-maps: ee1e65647460c3d41e778071be5eda10e3da6225
+  react-native-maps: cd5b0f9effdd06dabc7b6cfb35721f111630986d
   react-native-netinfo: f0a9899081c185db1de5bb2fdc1c88c202a059ac
   react-native-pager-view: b7f8cf921e19063a3528ee2aeae945bb42104dbd
   react-native-safe-area-context: 55dbcf556a51092ddf163b29febbc07dc7f14ebb
