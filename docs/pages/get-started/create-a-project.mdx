@@ -1,24 +1,77 @@
----
-title: Create a project
-description: Learn how to create a new Expo project.
-hideTOC: true
----
+// 📁 app/index.tsx
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ProfileScreen from '../src/screens/ProfileScreen';
+import CheckInScreen from '../src/screens/CheckInScreen';
 
-import { Terminal } from '~/ui/components/Snippet';
+const Stack = createNativeStackNavigator();
 
-System requirements:
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="CheckIn" component={CheckInScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
-- [Node.js (LTS)](https://nodejs.org/en/).
-- macOS, Windows (Powershell and [WSL 2](https://expo.fyi/wsl)), and Linux are supported.
+// 📁 src/screens/ProfileScreen.tsx
+import { View, Text, Image, StyleSheet } from 'react-native';
+import TrustMeter from '../components/TrustMeter';
 
-We recommend starting with the default project created by `create-expo-app`. The default project includes example code to help you get started.
+const dummyUser = {
+  name: 'Jordan Rivers',
+  avatar: 'https://via.placeholder.com/100',
+  trustScore: 82,
+};
 
-To create a new project, run the following command:
+export default function ProfileScreen() {
+  return (
+    <View style={styles.container}>
+      <Image source={{ uri: dummyUser.avatar }} style={styles.avatar} />
+      <Text style={styles.name}>{dummyUser.name}</Text>
+      <TrustMeter score={dummyUser.trustScore} />
+    </View>
+  );
+}
 
-<Terminal cmd={['$ npx create-expo-app@latest']} />
+const styles = StyleSheet.create({
+  container: { alignItems: 'center', padding: 20 },
+  avatar: { width: 100, height: 100, borderRadius: 50 },
+  name: { fontSize: 24, marginTop: 10 },
+});
 
-> You can choose a different template by adding the [`--template` option](/more/create-expo/#--template).
+// 📁 src/screens/CheckInScreen.tsx
+import { View, Text, StyleSheet } from 'react-native';
 
-## Next step
+export default function CheckInScreen() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Geo Check-In coming soon...</Text>
+    </View>
+  );
+}
 
-You have a project. Now it's time to set up your development environment so that you can start developing.
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  text: { fontSize: 18 },
+});
+
+// 📁 src/components/TrustMeter.tsx
+import { View, StyleSheet } from 'react-native';
+
+export default function TrustMeter({ score }: { score: number }) {
+  const color = score > 80 ? 'green' : score > 50 ? 'orange' : 'red';
+  return (
+    <View style={styles.wrapper}>
+      <View style={[styles.bar, { width: `${score}%`, backgroundColor: color }]} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  wrapper: { width: '100%', height: 10, backgroundColor: '#ccc', borderRadius: 5 },
+  bar: { height: 10, borderRadius: 5 },
+});
